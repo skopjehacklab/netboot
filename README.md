@@ -90,11 +90,12 @@ For example (the fstab entry):
 
 ```
 /home/netboot/iso/ubuntu-16.04.2-desktop-amd64.iso /home/netboot/nfs/ubuntu-16.04.2-desktop-amd64 auto loop,nofail,ro 0 0
+/home/netboot/iso/Fedora-Workstation-Live-x86_64-26-1.5.iso /home/netboot/nfs/fedora auto loop,nofail,ro 0 0
 ```
 
 If running a lot of distros, make sure to enlarge the maximum allowed loop devices:
 ```
-#/etc/modprobe.d/local.conf 
+#/etc/modprobe.d/local.conf
 options loop max_loop=32
 ```
 
@@ -111,8 +112,8 @@ How booting works, step by step:
 1. PXE BIOS uses tftp to download pxelinux.0 and runs it
 1. pxelinux (inherits the IP setup from the BIOS)
    it uses tftp to download a config file (typically pxelinux.cfg/default)
-1. the config file is a typical syslinux configuration specifying a 
+1. the config file is a typical syslinux configuration specifying a
    kernel and initial ramfs (initrd) an archive unpacked in a ram filesystem
 1. pxelinux.0 tftp downloads the choosen kernel and initrd in RAM
 1. the kernel runs, initializes itself, and finds the ram filesystem
-1. /init in the ramfs is run as process 1 (ussually a script) 
+1. /init in the ramfs is run as process 1 (ussually a script)

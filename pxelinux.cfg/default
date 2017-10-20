@@ -1,0 +1,5 @@
+UI vesamenu.c32
+MENU RESOLUTION 1024 768
+
+INCLUDE ::/pxelinux.cfg/menu-colors-splash.cfg
+INCLUDE ::/pxelinux.cfg/menu.cfg
